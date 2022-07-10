@@ -50,15 +50,16 @@ RUN v="${TRT_VERSION%.*}-1+cuda${CUDA_VERSION%.*}" && \
 
 
 # 升级 pip 包们
-RUN python -m pip install --upgrade pip setuptools
+RUN python -m pip install --upgrade *
 
+# 安装 onnx 包 和 nvidia-pyindex
 RUN pip install paddle2onnx onnx pycuda nvidia-pyindex
 
-# 先安装 nvidia-pyindex
+# 需要先安装 nvidia-pyindex
 RUN pip install onnx-graphsurgeon onnxsim
 
 
-# 清理安装文件
+# 瘦身
 RUN apt clean -y \
 	&& apt autoclean -y \
 	&& apt autoremove -y \
