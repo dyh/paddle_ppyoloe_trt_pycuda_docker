@@ -50,7 +50,7 @@ RUN v="${TRT_VERSION%.*}-1+cuda${CUDA_VERSION%.*}" && \
 
 
 # 升级 pip 包们
-RUN python -m pip install --upgrade *
+RUN python -m pip install --upgrade pip setuptools
 
 # 安装 onnx 包 和 nvidia-pyindex
 RUN pip install paddle2onnx onnx pycuda nvidia-pyindex
