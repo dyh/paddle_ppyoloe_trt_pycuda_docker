@@ -7,6 +7,10 @@ paddlepaddle pp-yoloe -> onnx -> tensorrt 部署 -> pycuda 推理
 
 ## 视频
 
+bilibili
+
+[![bilibili](https://raw.githubusercontent.com/dyh/paddle_ppyoloe_trt_pycuda_docker/main/cover1.jpg)](https://www.bilibili.com/video/BV1R34y1n71w/ "bilibili")
+
 
 
 ## 运行环境
