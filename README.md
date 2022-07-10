@@ -1,11 +1,17 @@
-# PP-YOLOE -> ONNX -> TensorRT -> pycuda 推理
+# pp-yoloe -> tensorrt 部署 -> pycuda 推理
 
 ### 项目信息
 
+paddlepaddle 的 pp-yoloe -> onnx -> trt -> pycuda 推理
 
 
 ### 视频
 
+
+## 运行环境
+
+- 环境复杂，直接上Docker
+- all you need is Dockerfile
 
 
 ## 宿主机环境
@@ -13,12 +19,11 @@
 - 操作系统 ubuntu 22.04
 - 显卡型号 rtx3090
 - 显卡驱动 515.48.07
-- docker版本 
-- nvidia-container-toolkit版本 
+- docker版本 20.10.17
+- nvidia-container-toolkit版本 2.11.0-1
 
 
 ## 如何运行
-
 
 1. 安装 docker
 
@@ -111,14 +116,14 @@
     ```
 
 
-8. 安装 paddlepaddle
+8. 安装 PaddlePaddle
 
     ```
     $ python -m pip install paddlepaddle-gpu==2.3.1.post116 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
     ```
 
 
-9. 安装 paddledetection
+9. 安装 PaddleDetection
 
     ```
     $ cd /TRT
@@ -157,7 +162,6 @@
     $ paddle2onnx --model_dir ./ppyoloe_crn_s_300e_coco \
                   --model_filename model.pdmodel \
                   --params_filename model.pdiparams \
-                  --opset_version 12 \
                   --save_file out_s.onnx \
                   --input_shape_dict "{'image':[1, 3, 640, 640], 'scale_factor': [1, 2]}"
     ```
@@ -171,8 +175,8 @@
              --input_path out_s.onnx \
              --save_path out_s_nms.onnx \
              --class_num 80 \
-             --score_threshold 0.25 \
-             --iou_threshold 0.45
+             --score_threshold 0.5 \
+             --iou_threshold 0.4
     ```
 
 13. NMS ONNX -> TensorRT .engine
@@ -191,6 +195,9 @@
 
 15. 查看结果
 
+    ```
+    ./bus.jpg
+    ```
 
 
 ## 项目引用
