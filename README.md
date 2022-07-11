@@ -86,7 +86,7 @@ bilibili
     $ git clone https://github.com/dyh/paddle_ppyoloe_trt_pycuda_docker.git
     ```
 
-4. 进入 Dockerfile 目录
+4. 进入 dockerfile 目录
 
     ```
     $ cd paddle_ppyoloe_trt_pycuda_docker/dockerfile
@@ -107,9 +107,7 @@ bilibili
     > 挂载目录
 
     ```
-    $ cd ../
-
-    $ docker run -itd --gpus all -v ${PWD}:/TRT --name trt_1 trt/ppyoloe:v1
+    $ cd .. && docker run -itd --gpus all -v ${PWD}:/TRT --name trt_1 trt/ppyoloe:v1
     ```
 
 
@@ -123,7 +121,7 @@ bilibili
 8. 安装 PaddlePaddle
 
     ```
-    $ python -m pip install paddlepaddle-gpu==2.3.1.post116 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+    $ python -m pip install --no-cache-dir paddlepaddle-gpu==2.3.1.post116 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
     ```
 
 
@@ -138,13 +136,12 @@ bilibili
 
     $ cd PaddleDetection-2.4.0
 
-    $ pip install -r requirements.txt && python setup.py install
+    $ pip install --no-cache-dir -r requirements.txt && python setup.py install
 
     $ pip uninstall opencv-python -y && \
-        pip install opencv-python-headless && \
-        pip uninstall opencv-python-headless -y && \
-        pip install opencv-python-headless
-
+               pip install --no-cache-dir opencv-python-headless && \
+               pip uninstall opencv-python-headless -y && \
+               pip install --no-cache-dir opencv-python-headless
     ```
 
 
