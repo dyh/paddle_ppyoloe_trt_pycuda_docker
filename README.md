@@ -86,7 +86,7 @@ bilibili
     $ git clone https://github.com/dyh/paddle_ppyoloe_trt_pycuda_docker.git
     ```
 
-4. 进入目录
+4. 进入 Dockerfile 目录
 
     ```
     $ cd paddle_ppyoloe_trt_pycuda_docker/dockerfile
