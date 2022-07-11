@@ -109,3 +109,26 @@ pytorch 显存占用
 1439MiB
 
 -------------------------------------
+
+python detect.py --weights ./weights/yolov7.pt --conf 0.50 --img-size 640 --source ../images/ --nosave
+
+Done. (9.738s)
+
+9.738 / 536 = 0.017496269
+
+yolov7 框架 显存占用
+1987MiB
+
+-------------------------------------
+
+python detect.py --weights ./weights/yolov7x.pt --conf 0.50 --img-size 640 --source ../images/ --nosave
+
+Done. (11.213s)
+
+11.213 / 536 = 0.020919776
+
+yolov7 框架 显存占用
+2251MiB
+
+-------------------------------------
+
