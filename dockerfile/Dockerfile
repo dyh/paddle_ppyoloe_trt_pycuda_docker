@@ -46,7 +46,7 @@ RUN v="${TRT_VERSION%.*}-1+cuda${CUDA_VERSION%.*}" && \
       apt-get update && \
       sudo apt-get install -y libnvinfer8=${v} libnvonnxparsers8=${v} libnvparsers8=${v} libnvinfer-plugin8=${v} \
       libnvinfer-dev=${v} libnvonnxparsers-dev=${v} libnvparsers-dev=${v} libnvinfer-plugin-dev=${v} \
-      libnvinfer-bin=${v} python3-libnvinfer-dev=${v}
+      libnvinfer-bin=${v} python3-libnvinfer=${v} python3-libnvinfer-dev=${v}
 
 # 升级 pip 包们
 RUN python -m pip install --upgrade setuptools pip
